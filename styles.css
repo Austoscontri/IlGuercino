@@ -479,3 +479,57 @@ footer ul li a:hover {
         display: none;
     }
 }
+
+/* Stili per dispositivi mobili (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Header */
+    header .logo h1 {
+        font-size: 1.8rem; /* Riduci la dimensione del titolo */
+    }
+
+    header .logo p {
+        font-size: 1rem; /* Riduci la dimensione del sottotitolo */
+    }
+
+    nav ul {
+        flex-direction: column; /* Cambia il layout del menu in colonna */
+        gap: 0.5rem; /* Aggiungi spazio tra gli elementi del menu */
+    }
+
+    nav ul li {
+        margin: 0; /* Rimuovi il margine laterale */
+    }
+
+    /* Hero Section */
+    .hero-text {
+        width: 90%; /* Riduci la larghezza del testo */
+        padding: 0.5rem; /* Riduci il padding */
+    }
+
+    .hero-text h2 {
+        font-size: 1.5rem; /* Riduci la dimensione del titolo */
+    }
+
+    .hero-text p {
+        font-size: 1rem; /* Riduci la dimensione del testo */
+    }
+
+    .hero-text .btn {
+        padding: 0.5rem 1rem; /* Riduci le dimensioni del pulsante */
+        font-size: 1rem; /* Riduci la dimensione del testo del pulsante */
+    }
+
+    /* Footer */
+    footer p {
+        font-size: 0.9rem; /* Riduci la dimensione del testo */
+    }
+
+    footer ul {
+        flex-direction: column; /* Cambia il layout del footer in colonna */
+        gap: 0.5rem; /* Aggiungi spazio tra gli elementi */
+    }
+
+    footer ul li a {
+        font-size: 0.9rem; /* Riduci la dimensione del testo */
+    }
+}
