@@ -8,7 +8,156 @@
 </head>
 <body>
     <!-- Header -->
+    <header><!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collezione - Il Guercino</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
     <header>
+        <div class="logo">
+            <h1>Il Guercino</h1>
+            <p>Collezione Digitale</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="collezione.html">Collezione</a></li>
+                <li><a href="biografia.html">Biografia</a></li>
+                <li><a href="servizi.html">Servizi</a></li>
+                <li><a href="project-plan.html">Web Project Plan</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Filtri di Ricerca -->
+    <section class="filtri">
+        <h2>Filtra le Opere</h2>
+        <form>
+            <label for="periodo">Periodo:</label>
+            <select id="periodo" name="periodo">
+                <option value="tutti">Tutti</option>
+                <option value="giovanili">Opere Giovanili</option>
+                <option value="mature">Opere Mature</option>
+                <option value="tarde">Opere Tarde</option>
+            </select>
+
+            <label for="tema">Tema:</label>
+            <select id="tema" name="tema">
+                <option value="tutti">Tutti</option>
+                <option value="sacra">Arte Sacra</option>
+                <option value="ritratti">Ritratti</option>
+                <option value="paesaggi">Paesaggi</option>
+            </select>
+
+            <button type="submit">Applica Filtri</button>
+        </form>
+    </section>
+
+    <!-- Griglia delle Opere -->
+    <section class="opere">
+        <h2>Opere del Guercino</h2>
+        <div class="griglia-opere">
+            <div class="opera" data-anno="1619" data-titolo="Martirio di San Pietro" data-link="opera2.html">
+                <img src="img2.jfif" alt="Martirio di San Pietro">
+                <h3>Martirio di San Pietro</h3>
+                <p>Data: 1619</p>
+                <a href="opera2.html">Dettagli</a>
+            </div>
+            <div class="opera" data-anno="1650" data-titolo="Assunzione della Vergine" data-link="opera1.html">
+                <img src="img1.jfif" alt="Assunzione della Vergine">
+                <h3>Assunzione della Vergine</h3>
+                <p>Data: 1650</p>
+                <a href="opera1.html">Dettagli</a>
+            </div>
+        </div>
+        <div class="griglia-opere">
+            <div class="opera" data-anno="1620" data-titolo="San Francesco in estasi con san Benedetto e un angelo musicante" data-link="opera3.html">
+                <img src="img3.jpg" alt="San Francesco in estasi">
+                <h3>San Francesco in estasi</h3>
+                <p>Data: 1620</p>
+                <a href="opera3.html">Dettagli</a>
+            </div>
+            <div class="opera" data-anno="1650" data-titolo="San Giovanni Battista nel deserto" data-link="opera4.html">
+                <img src="img4.jpg" alt="San Giovanni Battista">
+                <h3>San Giovanni Battista</h3>
+                <p>Data: 1650</p>
+                <a href="opera4.html">Dettagli</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Interattiva -->
+    <section class="timeline">
+        <h2>Timeline delle Opere</h2>
+        <div class="timeline-container" id="timeline-container">
+            <!-- Gli elementi della timeline verranno generati qui -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2023 Collezione Digitale del Guercino</p>
+        <ul>
+            <li><a href="#">Contatti</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+        </ul>
+    </footer>
+
+    <!-- Script per generare la timeline -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Array per memorizzare i dati delle opere
+            const opere = [];
+
+            // Funzione per estrarre i dati dalle opere nella griglia
+            const opereGriglia = document.querySelectorAll(".opera");
+            opereGriglia.forEach((opera) => {
+                const anno = parseInt(opera.getAttribute("data-anno"));
+                const titolo = opera.getAttribute("data-titolo");
+                const link = opera.getAttribute("data-link");
+
+                // Aggiungi i dati all'array
+                opere.push({ anno, titolo, link });
+            });
+
+            // Ordina le opere per anno
+            opere.sort((a, b) => a.anno - b.anno);
+
+            // Genera la timeline
+            const timelineContainer = document.getElementById("timeline-container");
+
+            opere.forEach((opera) => {
+                const timelineItem = document.createElement("div");
+                timelineItem.classList.add("timeline-item");
+
+                const timelineContent = document.createElement("div");
+                timelineContent.classList.add("timeline-content");
+
+                const anno = document.createElement("h3");
+                anno.textContent = opera.anno;
+
+                const titolo = document.createElement("p");
+                titolo.textContent = opera.titolo;
+
+                const link = document.createElement("a");
+                link.href = opera.link;
+                link.textContent = "Vedi Opera";
+
+                timelineContent.appendChild(anno);
+                timelineContent.appendChild(titolo);
+                timelineContent.appendChild(link);
+                timelineItem.appendChild(timelineContent);
+                timelineContainer.appendChild(timelineItem);
+            });
+        });
+    </script>
+</body>
+</html>
         <div class="logo">
             <h1>Il Guercino</h1>
             <p>Collezione Digitale</p>
