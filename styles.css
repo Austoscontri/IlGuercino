@@ -274,12 +274,17 @@ nav ul li a:hover {
 .Biografia .immagine {
     flex: 1;
     max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuisce le immagini in modo uniforme */
+    gap: 1rem; /* Aggiunge spazio tra le immagini */
 }
 
 .Biografia .immagine img {
     width: 100%;
     height: auto;
     border-radius: 10px;
+    object-fit: cover; /* Mantiene le proporzioni dell'immagine */
 }
 
 .Biografia .biografia {
@@ -303,7 +308,6 @@ nav ul li a:hover {
 .Biografia .biografia strong {
     color: #8B7355; /* Colore marrone dorato per i titoli interni */
 }
-
 /* Footer */
 footer {
     background-color: #8B7355;
@@ -482,51 +486,95 @@ footer ul li a:hover {
 
 /* Stili per dispositivi mobili (max-width: 768px) */
 @media (max-width: 768px) {
+    /* Header */
+    header .logo h1 {
+        font-size: 1.8rem; /* Riduci la dimensione del titolo */
+    }
+
+    header .logo p {
+        font-size: 1rem; /* Riduci la dimensione del sottotitolo */
+    }
+
+    nav ul {
+        flex-direction: column; /* Cambia il layout del menu in colonna */
+        gap: 0.5rem; /* Aggiungi spazio tra gli elementi del menu */
+    }
+
+    nav ul li {
+        margin: 0; /* Rimuovi il margine laterale */
+    }
+
     /* Hero Section */
-    .hero {
-        position: relative;
-        height: 300px; /* Altezza fissa per la sezione hero */
-    }
-
-    .hero img {
-        height: 100%; /* L'immagine copre l'intera altezza */
-        object-fit: cover; /* Mantiene le proporzioni senza distorsioni */
-    }
-
     .hero-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 90%; /* Larghezza del contenitore del testo */
-        padding: 1rem; /* Aumenta il padding */
-        background-color: rgba(0, 0, 0, 0.7); /* Sfondo semi-trasparente */
-        border-radius: 10px; /* Bordi arrotondati */
-        text-align: center;
+        width: 90%; /* Riduci la larghezza del testo */
+        padding: 0.5rem; /* Riduci il padding */
     }
 
     .hero-text h2 {
         font-size: 1.5rem; /* Riduci la dimensione del titolo */
-        margin-bottom: 0.5rem; /* Aggiungi spazio sotto il titolo */
-        color: #fff; /* Colore del testo */
     }
 
     .hero-text p {
         font-size: 1rem; /* Riduci la dimensione del testo */
-        margin-bottom: 1rem; /* Aggiungi spazio sotto il paragrafo */
-        color: #fff; /* Colore del testo */
     }
 
     .hero-text .btn {
         padding: 0.5rem 1rem; /* Riduci le dimensioni del pulsante */
         font-size: 1rem; /* Riduci la dimensione del testo del pulsante */
-        background-color: #8B7355; /* Colore di sfondo */
-        color: #fff; /* Colore del testo */
-        border-radius: 5px; /* Bordi arrotondati */
-        text-decoration: none; /* Rimuovi la sottolineatura */
     }
 
-    .hero-text .btn:hover {
-        background-color: #6B5A4A; /* Cambia colore al passaggio del mouse */
+    /* Footer */
+    footer p {
+        font-size: 0.9rem; /* Riduci la dimensione del testo */
     }
+
+    footer ul {
+        flex-direction: column; /* Cambia il layout del footer in colonna */
+        gap: 0.5rem; /* Aggiungi spazio tra gli elementi */
+    }
+
+    footer ul li a {
+        font-size: 0.9rem; /* Riduci la dimensione del testo */
+    }
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background-color: #f8f9fa; /* Colore di sfondo */
+    padding: 0.75rem 1rem; /* Spaziatura interna */
+    border-radius: 0.25rem; /* Bordi arrotondati */
+    margin: 1rem auto; /* Margine esterno */
+    max-width: 1200px; /* Larghezza massima */
+}
+
+.breadcrumb ul {
+    list-style: none; /* Rimuove i punti elenco */
+    display: flex; /* Disposizione in linea */
+    gap: 0.5rem; /* Spazio tra gli elementi */
+    padding: 0; /* Rimuove il padding predefinito */
+    margin: 0; /* Rimuove il margine predefinito */
+}
+
+.breadcrumb ul li {
+    font-size: 0.9rem; /* Dimensione del testo */
+    color: #333; /* Colore del testo */
+}
+
+.breadcrumb ul li:not(:last-child)::after {
+    content: "›"; /* Aggiunge il separatore */
+    margin-left: 0.5rem; /* Spazio a sinistra del separatore */
+    color: #8B7355; /* Colore del separatore */
+}
+
+.breadcrumb ul li a {
+    color: #8B7355; /* Colore del link */
+    text-decoration: none; /* Rimuove la sottolineatura */
+}
+
+.breadcrumb ul li a:hover {
+    text-decoration: underline; /* Sottolinea il link al passaggio del mouse */
+}
+
+.breadcrumb ul li.active {
+    color: #6B5A4A; /* Colore per l'elemento attivo (senza link) */
 }
